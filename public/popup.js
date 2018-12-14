@@ -7,7 +7,10 @@ function sendGoToAdmin() {
   })
 }
 
-function setAdmin() {
+function setAdmin(urlString) {
+  if (!urlString) { return }
+  const url = new URL(urlString)
+  if (!url.pathname.match(/^\/admin/)) { return }
   const panel = $('#admin')
   panel.text('Functions Request Welcome!')
   return 'admin'
@@ -54,7 +57,7 @@ chrome.tabs.query({
     { from: 'popup', subject: 'formInfo' },
     (data = {}) => {
       const tabs = []
-      tabs.push(setAdmin())
+      tabs.push(setAdmin(data.url))
       tabs.push(setCheckoutFormInfo(data.info))
       tabs.push(setShopId(data.link))
       const tab = tabs.find(e => !!e)
