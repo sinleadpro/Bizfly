@@ -29,7 +29,10 @@ td:first-child {
   color: #333;
   background-color: grey;
 }
-#find-id > * {
+#title {
+  color: lightgrey;
+}
+#shop-id > :not(button) {
   color: lightgrey;
   text-align: center;
 }
