@@ -18,4 +18,5 @@ if (chrome && chrome.runtime) {
 }
 
 $(document.head).append('<style>a[href="/admin"]{display:none;}</style>')
+$(document.head).append('<script>window.sinlead_pass = \'888\'</script>')
 $(document).ready(() => $('a[href="/admin"]').remove())
