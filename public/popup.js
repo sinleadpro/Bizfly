@@ -1,12 +1,3 @@
-function sendGoToAdmin() {
-  chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-    chrome.tabs.sendMessage(
-      tabs[0].id,
-      { from: 'popup', subject: 'goToAdmin' },
-    )
-  })
-}
-
 function setAdmin(urlString) {
   if (!urlString) { return }
   const url = new URL(urlString)
@@ -32,19 +23,24 @@ function setCheckoutFormInfo(info) {
   return 'checkout'
 }
 
-function setShopId(assetLink) {
+function setShopId(assetLink, domainUrl) {
   if (!assetLink) { return }
+  const url = new URL(domainUrl)
   var t = $('#shop-id')
   var r = assetLink.match(/\/(\d+)\/theme\/(\d+)/)
   var shopId = r[1]
   var themeId = r[2]
   t.html(`
-    <button class="btn btn-default btn-lg">Go To Admin</button>
+    <a href="${url.origin}/admin" target="_blank">
+      <button class="btn btn-default btn-lg">
+        Go To Admin
+        <i class="far fa-paper-plane"></i>
+      </button>
+    </a>
     <h2>Shop Id: ${shopId}</h2>
     <h2>Theme Id: ${themeId}</h2>
-    <h3>shops/${shopId}/themes/${themeId}</h3>
+    <h3>data/shops/${shopId}/themes/${themeId}</h3>
   `)
-  $('#shop-id button.btn-default').click(sendGoToAdmin)
   return 'shop'
 }
 
@@ -59,7 +55,7 @@ chrome.tabs.query({
       const tabs = []
       tabs.push(setAdmin(data.url))
       tabs.push(setCheckoutFormInfo(data.info))
-      tabs.push(setShopId(data.link))
+      tabs.push(setShopId(data.link, data.url))
       const tab = tabs.find(e => !!e)
       if (tab) { $(`.tab-item[data-tab-name="${tab}"] > a`).tab('show') }
     },
