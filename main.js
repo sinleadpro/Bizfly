@@ -20,4 +20,20 @@ if (chrome && chrome.runtime) {
 $(document.head).append('<style>a[href="/admin"]{display:none;}</style>')
 $(document.head).append('<script>window.sinlead_pass = \'888\'</script>')
 $(document).ready(() => $('a[href="/admin"]').remove())
-$(document.body).append('<a href="/admin" target="_blank"></a>')
+
+document.addEventListener(
+  'click',
+  event => {
+    const { target: element } = event
+    const { tagName, target, href } = element
+    if (tagName === 'A' && target === '_blank') {
+      const url = new URL(href)
+      if (/\/admin\/(products|orders|customers)\/\d+/.exec(url.pathname)) {
+        event.preventDefault()
+        event.stopPropagation()
+        location = href
+      }
+    }
+  },
+  true
+);

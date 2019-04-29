@@ -3,7 +3,12 @@ function setAdmin(urlString) {
   const url = new URL(urlString)
   if (!url.pathname.match(/^\/admin/)) { return }
   const panel = $('#admin')
-  panel.text('Functions Request Welcome!')
+  panel.html(`
+    <div>
+      <input type="checkbox" disabled checked>
+      Stop open new tab (products/customers/orders)
+    </div>
+  `)
   return 'admin'
 }
 

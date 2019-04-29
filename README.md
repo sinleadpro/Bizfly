@@ -14,7 +14,7 @@
 - 顯示 Shop Id, Theme Id
 
 ### 後台
-**empty**
+- 後台 訂單/商品/顧客 不另開新分頁
 
 ## 開發 & 安裝
   - `git clone https://gitlab.sinlead.com/mickplayer/Bizfly`
