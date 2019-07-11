@@ -18,7 +18,9 @@ if (chrome && chrome.runtime) {
 }
 
 $(document.head).append('<style>a[href="/admin"]{display:none;}</style>')
-$(document.head).append('<script>window.sinlead_pass = \'888\'</script>')
+if (location.host === 'www.testcyb.info') {
+  $(document.head).append('<script>window.sinlead_pass = \'888\'</script>')
+}
 if (!location.pathname.match(/\/admin/)) {
   $(document).ready(() => $('a[href="/admin"]').remove())
 }
