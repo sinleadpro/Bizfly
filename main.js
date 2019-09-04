@@ -24,6 +24,9 @@ if (location.host === 'www.testcyb.info') {
 if (!location.pathname.match(/\/admin/)) {
   $(document).ready(() => $('a[href="/admin"]').remove())
 }
+if (location.pathname.match(/\/admin\/themes\/\d+\/assets/)) {
+  $('#assets-confirm-modal').remove()
+}
 
 document.addEventListener(
   'click',

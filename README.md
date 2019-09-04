@@ -15,6 +15,7 @@
 
 ### 後台
 - 後台 訂單/商品/顧客 不另開新分頁
+- 自動隱藏樣板編輯器免責確認
 
 ## 開發 & 安裝
   - `git clone https://gitlab.sinlead.com/mickplayer/Bizfly`
