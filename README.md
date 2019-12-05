@@ -17,6 +17,9 @@
 - 後台 訂單/商品/顧客 不另開新分頁
 - 自動隱藏樣板編輯器免責確認
 
+### 共通
+- 測試機強制https
+
 ## 開發 & 安裝
   - `git clone https://gitlab.sinlead.com/mickplayer/Bizfly`
   - Chrome `chrome://extensions/` 載入未封裝擴充功能

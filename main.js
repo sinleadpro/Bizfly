@@ -21,6 +21,9 @@ $(document.head).append('<style>a[href="/admin"]{display:none;}</style>')
 if (location.host === 'www.testcyb.info') {
   $(document.head).append('<script>window.sinlead_pass = \'888\'</script>')
 }
+if (location.host.match(/\.testcyb\.info$/) && !location.protocol.match(/^https/)) {
+  location.protocol = 'https'
+}
 if (!location.pathname.match(/\/admin/)) {
   $(document).ready(() => $('a[href="/admin"]').remove())
 }
