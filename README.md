@@ -21,7 +21,7 @@
 - 測試機強制https
 
 ## 開發 & 安裝
-  - `git clone https://gitlab.sinlead.com/mickplayer/Bizfly`
+  - `git clone https://github.com/sinleadpro/Bizfly`
   - Chrome `chrome://extensions/` 載入未封裝擴充功能
   - Firefox `about:debugging` 載入暫用附加元件
   - 前往商家前台，點擊擴充功能icon開啟
